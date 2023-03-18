@@ -7,8 +7,8 @@ import PrimaryButton from './Components/ui/PrimaryButton';
 import Title from './Components/ui/Title';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import LoginScreen from './screen/LoginScreen';
-import WelcomeScreen from './screen/WelcomeScreen';
+import FirstScreen from './screen/FirstScreen';
+import OpenScreen from './screen/OpenScreen';
 
 const Stack = createNativeStackNavigator();
 export default function App() {
@@ -17,14 +17,14 @@ export default function App() {
       setClickState(true);
   }
   if(ClickState==true){
-      return(
-      <LoginScreen/>
-      );
-  }
+    return(
+    <FirstScreen/>
+    );
+}
   return (
     <>
      <StatusBar style="auto" />
-      <WelcomeScreen props={clickHandeler}/>
+      <OpenScreen props={clickHandeler} />
     </>
     
   );

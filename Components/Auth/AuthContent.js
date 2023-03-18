@@ -3,7 +3,7 @@ import { Alert, StyleSheet, View } from 'react-native';
 
 import FlatButton from '../ui/FlatButton';
 import AuthForm from './AuthForm';
-import { Colors } from '../../constants/styles';
+import  Colors  from '../../constants/color';
 
 function AuthContent({ isLogin, onAuthenticate }) {
 
@@ -70,7 +70,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 32,
     padding: 16,
     borderRadius: 8,
-    backgroundColor: Colors.primary800,
+    backgroundColor: Colors.primary700,
     elevation: 2,
     shadowColor: 'black',
     shadowOffset: { width: 1, height: 1 },
