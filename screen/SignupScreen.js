@@ -17,8 +17,9 @@ const authCtx=useContext(AuthContext);
   }
   catch(error){
     Alert.alert('Authentication failed','could not create New user . Please try again later');
+    setIsAuthenticating(false);
   }
-  setIsAuthenticating(false);
+ 
   }
   if (isAuthenticating) {
     return <LoadingOverlay message="Creating user please wait..." />;
