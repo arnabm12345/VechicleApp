@@ -7,7 +7,10 @@ import SignupScreen from './SignupScreen';
 import WelcomeScreen from './WelcomeScreen';
 import Colors from '../constants/color';
 import AuthContextProvider from '../store/auth-context';
-import { useContext} from 'react';
+import { useContext,useState,useEffect} from 'react';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+//import AppLoading from 'expo-app-loading';
+import LoadingOverlay from '../Components/ui/LoadingOverlay';
 //import { IconContext } from 'react-icons';
 //import { IconButton } from '@material-ui/core';
 import IconButton from '../Components/ui/IconButton';
@@ -65,12 +68,39 @@ function Navigation() {
   );
 }
 
+function Root() {
+    const [isTryingLogin, setIsTryingLogin] = useState(true);
+  
+    const authCtx = useContext(AuthContext);
+  
+    useEffect(() => {
+      async function fetchToken() {
+        const storedToken = await AsyncStorage.getItem('token');
+  
+        if (storedToken) {
+          authCtx.authenticate(storedToken);
+        }
+  
+        setIsTryingLogin(false);
+      }
+  
+      fetchToken();
+    }, []);
+  
+    if (isTryingLogin) {
+      return  <LoadingOverlay message="Logging you in..." />;
+    }
+  
+    return <Navigation />;
+  }
+  
+
 export default function FirstScreen() {
   return (
     <>
       <StatusBar style="light" />
       <AuthContextProvider>
-      <Navigation />
+      <Root />
       </AuthContextProvider>
     </>
   );
