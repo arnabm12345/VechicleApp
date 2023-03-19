@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
-import { View, TextInput, Button, StyleSheet } from 'react-native';
+import { View, TextInput,  StyleSheet } from 'react-native';
+import FlatButton from '../Components/ui/FlatButton';
+import Button from '../Components/ui/Button';
+import Colors from '../constants/color';
 
 const VehicleInfoScreen = () => {
   const [make, setMake] = useState('');
@@ -13,7 +16,8 @@ const VehicleInfoScreen = () => {
   };
 
   return (
-    <View style={styles.container}>
+    <View >
+    <View style={styles.authContent}>
       <TextInput
         style={styles.input}
         placeholder="Make"
@@ -39,11 +43,10 @@ const VehicleInfoScreen = () => {
         onChangeText={setLicensePlate}
       />
       <View style={styles.buttonContainer}>
-        <Button
-          title="Submit"
-          onPress={handlePress}
-        />
+        <Button onPress={handlePress} >Submit</Button>
+
       </View>
+    </View>
     </View>
   );
 };
@@ -62,10 +65,24 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 4,
     fontSize: 18,
+    backgroundColor:'#f9beda'
   },
   buttonContainer: {
     marginTop: 16,
-    alignSelf: 'center',
+    //alignSelf: 'center',
+    
+  },
+  authContent: {
+    marginTop: 64,
+    marginHorizontal: 32,
+    padding: 16,
+    borderRadius: 8,
+    backgroundColor: Colors.primary700,
+    elevation: 2,
+    shadowColor: 'black',
+    shadowOffset: { width: 1, height: 1 },
+    shadowOpacity: 0.35,
+    shadowRadius: 4,
   },
 });
 

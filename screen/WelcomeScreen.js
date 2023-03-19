@@ -1,10 +1,11 @@
 import { StyleSheet, Text, View } from 'react-native';
-
+import ProfileSection from './ProfileSection';
 function WelcomeScreen() {
   return (
     <View style={styles.rootContainer}>
-      <Text style={styles.title}>Welcome!</Text>
-      <Text>You authenticated successfully!</Text>
+        <Text style={styles.titel}>Welcome!</Text>
+      <Text style={styles.titlel}>You authenticated successfully!</Text>
+      <ProfileSection/>
     </View>
   );
 }
@@ -18,9 +19,15 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     padding: 32,
   },
-  title: {
+  titlel: {
+    //fontSize: 20,
+    //fontWeight: 'bold',
+    marginBottom: 50,
+  },
+  titel:{
     fontSize: 20,
     fontWeight: 'bold',
-    marginBottom: 8,
-  },
+    paddingBottom:10
+  }
+
 });
