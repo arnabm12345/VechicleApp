@@ -14,7 +14,53 @@ import LoadingOverlay from '../Components/ui/LoadingOverlay';
 //import { IconContext } from 'react-icons';
 //import { IconButton } from '@material-ui/core';
 import IconButton from '../Components/ui/IconButton';
+import { createDrawerNavigator } from '@react-navigation/drawer';
+import VehicleInfoScreen from './VehicleInfoScreen';
+import 'react-native-gesture-handler';
+
+const Drawer = createDrawerNavigator();
 const Stack = createNativeStackNavigator();
+
+//Function to create drawer navigator
+function DrawerNavigator() {
+    const authCtx=useContext(AuthContext);
+
+    return (
+      <Drawer.Navigator
+        initialRouteName='welcome'
+        screenOptions={{
+         // headerStyle: { backgroundColor: '#351401' },
+         headerStyle: { backgroundColor: '#72063c' },
+          headerTintColor: 'white',
+          drawerActiveBackgroundColor: '#f9beda',
+          drawerActiveTintColor: '#3c0a6b',
+          //sceneContainerStyle: { backgroundColor: '#3f2f25' },
+          sceneContainerStyle: { backgroundColor: '#f9beda' },
+          headerRight: ({ tintColor }) => (
+            <IconButton
+              icon="exit"
+              color={tintColor}
+              size={24}
+              onPress={authCtx.logout}
+            />
+          ),
+        }
+    }
+      >
+        <Drawer.Screen
+          name="Welcome"
+          component={WelcomeScreen}
+          options={{
+            title: 'Profile',
+          }}
+        />
+        <Drawer.Screen name="Vechicle Info" component={VehicleInfoScreen} />
+      </Drawer.Navigator>
+    );
+
+ }
+
+ 
 
 function AuthStack() {
   return (
@@ -32,7 +78,6 @@ function AuthStack() {
 }
 
 function AuthenticatedStack() {
-    const authCtx=useContext(AuthContext);
   return (
     <Stack.Navigator
       screenOptions={{
@@ -41,18 +86,20 @@ function AuthenticatedStack() {
         contentStyle: { backgroundColor: Colors.primary100 },
       }}
     >
-      <Stack.Screen name="Welcome"
-        component={WelcomeScreen}
+      <Stack.Screen name="Welcome "
+        component={DrawerNavigator}
         options={{
-          headerRight: ({ tintColor }) => (
+         /* headerRight: ({ tintColor }) => (
             <IconButton
               icon="exit"
               color={tintColor}
               size={24}
               onPress={authCtx.logout}
             />
-          ),
-        }} />
+          ),*/
+          headerShown: false
+        }} 
+        />
     </Stack.Navigator>
   );
 }
