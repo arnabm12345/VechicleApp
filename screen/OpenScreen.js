@@ -16,6 +16,9 @@ function OpenScreen({props}){
           <View style={styles.button}>
           <PrimaryButton onPress={props}>Let`s Go</PrimaryButton>
           </View>
+          <View style={styles.button}>
+          <PrimaryButton onPress={props}>Let`s Go</PrimaryButton>
+          </View>
           <StatusBar style="auto" />
         </View>
       );

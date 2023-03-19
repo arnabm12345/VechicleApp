@@ -1,12 +1,13 @@
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import { Linking } from 'react-native';
-
+import { color } from 'react-native-reanimated';
+import Colors from '../constants/color';
 const ContactUsScreen = () => {
 
-  const email = 'support@yourapp.com';
-  const phone = '555-123-4567';
-  const website = 'https://yourapp.com';
+  const email = 'arnabm12345@gmail.com';
+  const phone = '8967764647';
+  const website = 'https://vechiclebreakdown.com';
 
   const handleEmail = () => {
     // Use the `Linking` API to open the user's email app
@@ -24,7 +25,7 @@ const ContactUsScreen = () => {
   };
 
   return (
-    <View style={styles.container}>
+    <View style={styles.authContent}>
       <Text style={styles.header}>Contact Us</Text>
       <TouchableOpacity style={styles.button} onPress={handleEmail}>
         <Text style={styles.buttonText}>Email Support</Text>
@@ -49,6 +50,8 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 20,
+    textAlign: 'center',
+    color: Colors.error100,
   },
   button: {
     borderWidth: 1,
@@ -57,11 +60,26 @@ const styles = StyleSheet.create({
     padding: 10,
     marginVertical: 5,
     width: '80%',
+    alignSelf:'center',
+    backgroundColor: Colors.primary500
   },
   buttonText: {
     fontSize: 16,
     fontWeight: 'bold',
     textAlign: 'center',
+    color:Colors.error100,
+  },
+  authContent: {
+    marginTop: 64,
+    marginHorizontal: 32,
+    padding: 16,
+    borderRadius: 8,
+    backgroundColor: Colors.primary700,
+    elevation: 2,
+    shadowColor: 'black',
+    shadowOffset: { width: 1, height: 1 },
+    shadowOpacity: 0.35,
+    shadowRadius: 4,
   },
 });
 

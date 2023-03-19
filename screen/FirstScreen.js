@@ -17,7 +17,10 @@ import IconButton from '../Components/ui/IconButton';
 import { createDrawerNavigator } from '@react-navigation/drawer';
 import VehicleInfoScreen from './VehicleInfoScreen';
 import 'react-native-gesture-handler';
-
+import ContactUsScreen from './CotactUs';
+import EmergencyContactsScreen from './EmergencyHelp';
+import LocationServicesScreen from './ServiceCenter';
+import MechanicList from './MechanicList';
 const Drawer = createDrawerNavigator();
 const Stack = createNativeStackNavigator();
 
@@ -55,6 +58,9 @@ function DrawerNavigator() {
           }}
         />
         <Drawer.Screen name="Vechicle Info" component={VehicleInfoScreen} />
+        <Drawer.Screen name="Nearby Service" component={LocationServicesScreen} />
+        <Drawer.Screen name="Contact Us" component={ContactUsScreen} />
+        <Drawer.Screen name="Emergency Help" component={EmergencyContactsScreen} />
       </Drawer.Navigator>
     );
 
@@ -100,6 +106,7 @@ function AuthenticatedStack() {
           headerShown: false
         }} 
         />
+        <Stack.Screen name="Mechanic List" component={MechanicList}/>
     </Stack.Navigator>
   );
 }
