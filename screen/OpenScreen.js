@@ -3,7 +3,6 @@ import { useState } from 'react';
 import { StyleSheet, View, Image, Text,Button,StatusBar } from 'react-native';
 import Colors from '../constants/color';
 import PrimaryButton from '../Components/ui/PrimaryButton';
-import Title from '../Components/ui/Title';
 
 function OpenScreen({props}){
 
@@ -12,9 +11,6 @@ function OpenScreen({props}){
              <Text style={styles.title}>Vechicle Breakdown App</Text> 
            <View style={styles.image}>
           <Image source={require('../assets/220-2203211_home-car-breakdown-logo.png')} style={styles.logo} />
-          </View>
-          <View style={styles.button}>
-          <PrimaryButton onPress={props}>Let`s Go</PrimaryButton>
           </View>
           <View style={styles.button}>
           <PrimaryButton onPress={props}>Let`s Go</PrimaryButton>

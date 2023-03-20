@@ -21,6 +21,8 @@ import ContactUsScreen from './CotactUs';
 import EmergencyContactsScreen from './EmergencyHelp';
 import LocationServicesScreen from './ServiceCenter';
 import MechanicList from './MechanicList';
+import AboutUs from './AboutUs';
+import MechanicRegistration from './MechanicRegistration';
 const Drawer = createDrawerNavigator();
 const Stack = createNativeStackNavigator();
 
@@ -61,6 +63,8 @@ function DrawerNavigator() {
         <Drawer.Screen name="Nearby Service" component={LocationServicesScreen} />
         <Drawer.Screen name="Contact Us" component={ContactUsScreen} />
         <Drawer.Screen name="Emergency Help" component={EmergencyContactsScreen} />
+        <Drawer.Screen name="About Us" component={AboutUs} />
+
       </Drawer.Navigator>
     );
 

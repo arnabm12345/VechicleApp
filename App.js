@@ -9,7 +9,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import FirstScreen from './screen/FirstScreen';
 import OpenScreen from './screen/OpenScreen';
-
+import DataContextProvider from './store/data-context';
 const Stack = createNativeStackNavigator();
 export default function App() {
   const [ClickState,setClickState] =useState(false);
@@ -19,6 +19,7 @@ export default function App() {
   if(ClickState==true){
     return(
     <FirstScreen/>
+  
     );
 }
   return (
