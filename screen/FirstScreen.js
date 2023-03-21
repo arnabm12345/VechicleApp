@@ -22,7 +22,8 @@ import EmergencyContactsScreen from './EmergencyHelp';
 import LocationServicesScreen from './ServiceCenter';
 import MechanicList from './MechanicList';
 import AboutUs from './AboutUs';
-import MechanicRegistration from './MechanicRegistration';
+import ManageData from './MechanicRegistration';
+
 const Drawer = createDrawerNavigator();
 const Stack = createNativeStackNavigator();
 
@@ -59,6 +60,7 @@ function DrawerNavigator() {
             title: 'Profile',
           }}
         />
+        <Drawer.Screen name="Mechanic Registration" component={ManageData} />
         <Drawer.Screen name="Vechicle Info" component={VehicleInfoScreen} />
         <Drawer.Screen name="Nearby Service" component={LocationServicesScreen} />
         <Drawer.Screen name="Contact Us" component={ContactUsScreen} />
@@ -111,6 +113,7 @@ function AuthenticatedStack() {
         }} 
         />
         <Stack.Screen name="Mechanic List" component={MechanicList}/>
+        <Stack.Screen name="Mechanic Registration" component={ManageData}/>
     </Stack.Navigator>
   );
 }

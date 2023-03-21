@@ -6,23 +6,23 @@ const DUMMY_DATA = [
       name: 'Arnab',
       number: 8967764647,
       lat:82.04,
-      long:-71.05,
+      lng:-71.05,
       email:'user@abc.com'
     }
     
   ];
   export const DataContext = createContext({
     data: [],
-    addData: ({ id,
+    addData: ({
     name,
     number,
     lat,
-    long,
+    lng,
     email
     }) => {},
   });
   
-  function expensesReducer(state, action) {
+  function dataReducer(state, action) {
     switch (action.type) {
       case 'ADD':
         const id = new Date().toString() + Math.random().toString();
@@ -34,6 +34,7 @@ const DUMMY_DATA = [
 
   function DataContextProvider({ children }) {
     const [datasState, dispatch] = useReducer(dataReducer, DUMMY_DATA);
+
     function addData(MechanicData) {
         dispatch({ type: 'ADD', payload: MechanicData });
       }

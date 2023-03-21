@@ -1,8 +1,8 @@
 import axios from 'axios';
 
-export function MechanicForm(formData) {
+export function StoreMechanicData(formData) {
   axios.post(
-    'https://vechicle-app-default-rtdb.firebaseio.com/',
+    'https://vechicle-app-default-rtdb.firebaseio.com/MechanicData.json',
     formData
   );
 }

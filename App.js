@@ -18,14 +18,18 @@ export default function App() {
   }
   if(ClickState==true){
     return(
+    <DataContextProvider>  
     <FirstScreen/>
+    </DataContextProvider>
   
     );
 }
   return (
     <>
      <StatusBar style="auto" />
+     <DataContextProvider> 
       <OpenScreen props={clickHandeler} />
+      </DataContextProvider>
     </>
     
   );

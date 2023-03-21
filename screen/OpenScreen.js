@@ -3,21 +3,29 @@ import { useState } from 'react';
 import { StyleSheet, View, Image, Text,Button,StatusBar } from 'react-native';
 import Colors from '../constants/color';
 import PrimaryButton from '../Components/ui/PrimaryButton';
-
+import { useNavigation } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 function OpenScreen({props}){
+function clickHandeler(){
+  //navigation.navigate('Mechanic Registration');
+}
+//const navigation = useNavigation();
+return(
+  <View style={styles.container}>
+  <Text style={styles.title}>Vechicle Breakdown App</Text> 
+<View style={styles.image}>
+<Image source={require('../assets/220-2203211_home-car-breakdown-logo.png')} style={styles.logo} />
+</View>
+<View style={styles.button}>
+<PrimaryButton onPress={props}>Let`s Go</PrimaryButton>
+</View>
+<View style={styles.button}>
+<PrimaryButton onPress={clickHandeler}>Mechanic Registration</PrimaryButton>
+</View>
+<StatusBar style="auto" />
+</View>
+);
 
-    return (
-          <View style={styles.container}>
-             <Text style={styles.title}>Vechicle Breakdown App</Text> 
-           <View style={styles.image}>
-          <Image source={require('../assets/220-2203211_home-car-breakdown-logo.png')} style={styles.logo} />
-          </View>
-          <View style={styles.button}>
-          <PrimaryButton onPress={props}>Let`s Go</PrimaryButton>
-          </View>
-          <StatusBar style="auto" />
-        </View>
-      );
 }
 export default OpenScreen;
 
